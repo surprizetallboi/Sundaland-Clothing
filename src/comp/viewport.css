@@ -1,0 +1,14 @@
+.viewport {
+  position: relative;
+  padding-top: 95px;
+  padding-bottom: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.ItemDisplay {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  /* grid-auto-rows: minmax(120px, auto); */
+}

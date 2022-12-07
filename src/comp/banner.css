@@ -1,0 +1,67 @@
+.banner {
+  width: 100vw;
+  position: relative;
+  top: 55px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+  background-color: rgb(102, 200, 242);
+  align-items: center;
+}
+
+.banItems {
+  margin-left: 100px;
+  font-family: Helvetica, sans-serif;
+}
+
+.banName {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 40px;
+  padding-bottom: 15px;
+}
+
+.banPrice {
+  padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.banDescrip {
+  max-width: 75vw;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.count {
+  position: relative;
+  top: 50px;
+  cursor: pointer;
+  background-color: black;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 900;
+  border-radius: 100px;
+}
+
+/* .addCount{
+    right: 10px;
+    
+} */
+
+/* .minCount{
+    left: 10px;
+} */
+
+.countWrapper {
+  display: flex;
+}
+
+.space {
+  width: auto;
+}

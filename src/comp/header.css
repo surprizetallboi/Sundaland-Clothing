@@ -1,0 +1,52 @@
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  height: 55px;
+  background-color: black;
+  align-items: center;
+  z-index: 10;
+}
+
+.space {
+  margin: auto;
+}
+
+.headerTitle {
+  font-size: 50px;
+  margin-left: 30px;
+}
+
+.search {
+  border-color: white;
+  border: 1px solid;
+  border-radius: 100px;
+  width: 150px;
+  align-items: center;
+  justify-content: right;
+  display: flex;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.searchWord {
+  position: relative;
+  right: 20px;
+}
+
+/* .cart{
+} */
+
+.catHeader {
+  margin-left: 35px;
+  font-size: 23px;
+}
+
+@media (max-width: 1050px) {
+  .catHeader{
+    display: none;
+  }
+}

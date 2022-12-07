@@ -1,9 +1,16 @@
 import React from "react";
 import "./itemDisplay.css";
-import { useAddToCart } from "../context";
 import Data from "../data.js";
+import { useCart } from '../CartContext'
+
 
 export default function ItemDisplay(props) {
+  const { cart, setCart } = useCart()
+
+function addToCart(newItem){
+  console.log(newItem);
+  setCart(oldCart => [newItem, ...oldCart]);
+}
   return (
     <div className="itemDisplay">
       <div className="padding">
@@ -18,8 +25,8 @@ export default function ItemDisplay(props) {
           <div className="color">{props.type}</div>
         </div>
 
-        <button className="addToCart" onClick={useAddToCart}>
-        {/* <button className="addToCart" onClick={useAddToCart(Data[props.id - 1])}> */}
+        {/* <button className="addToCart" onClick={addToCart(D)}> */}
+        <button className="addToCart" onClick={() => addToCart(Data[props.id - 1])}>
           Add To Cart
         </button>
 

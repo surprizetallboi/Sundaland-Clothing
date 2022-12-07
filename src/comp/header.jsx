@@ -1,9 +1,9 @@
 import React from "react";
 import "./header.css";
-import { CartProvider } from '../CartContext'
+import { useCart } from '../CartContext'
 
 export default function Header() {
-const { cart } = React.useContext(CartContext)
+const { cart } = useCart()
 
   function itemsInCart(){
   if (cart.length === 0){

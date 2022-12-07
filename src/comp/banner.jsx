@@ -8,7 +8,6 @@ export default function Banner(props) {
 
   useEffect(() => {
     interval = setInterval(() => {
-      
       if (count <= props.content.length - 2) {
         setCount(count + 1);
       } else {

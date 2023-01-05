@@ -15,27 +15,42 @@ export function CartProvider({ children }) {
   }, [cart]);
 
   function addToCart(newItemID) {
-    const cartItem = cart.find((cartItem) => cartItem.id === newItemID);
+    const cartI = cart.findIndex((cartItem) => cartItem.id === newItemID);
     // cartItem will become the ID number of a match, or be false
-    if (!cartItem) {
-      // var newCartItem = { id: newItemID, quant: 1 }
-      setCart((oldCart) => [{ id:newItemID, quant:1 }, ...oldCart]);
+    if (cartI < 0) {
+      const newCartItem = { id: newItemID, quant: 1 };
+      setCart((oldCart) => [newCartItem, ...oldCart]);
     } else {
-      const newQuant = cartItem.quant + 1;
-      setCart((oldCart) => [(cartItem.quant = newQuant), ...oldCart]);
+      const oldCartItem = cart[cartI];
+      oldCartItem.quant++;
+      const newCartBeforeItem = cart.slice(0, cartI);
+      const newCartAfterItem = cart.slice(cartI + 1);
+      setCart([...newCartBeforeItem, oldCartItem, ...newCartAfterItem]);
     }
   }
 
-  function emptyCart(){
-    setCart([{ id: 3, quant: 1 }])
+  function removeFromCart(itemId) {
+    const cartI = cart.findIndex((cartItem) => cartItem.id === itemId);
+
+    if (cart[cartI].quant === 1) {
+      setCart(cart.filter((v) => v.id !== itemId));
+    } else {
+      const oldCartItem = cart[cartI];
+      oldCartItem.quant--;
+      const newCartBeforeItem = cart.slice(0, cartI);
+      const newCartAfterItem = cart.slice(cartI + 1);
+      setCart([...newCartBeforeItem, oldCartItem, ...newCartAfterItem]);
+    }
   }
 
-  function removeFromCart(itemId) {
-    setCart(cart.filter((v) => v.id !== itemId));
+  function emptyCart() {
+    setCart([{ id: 0, quant: 1 }]);
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, emptyCart, removeFromCart, setCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, emptyCart, removeFromCart, setCart }}
+    >
       {children}
     </CartContext.Provider>
   );

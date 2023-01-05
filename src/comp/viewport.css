@@ -10,5 +10,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  /* grid-auto-rows: minmax(120px, auto); */
+ 
+  grid-auto-rows: minmax(220px, auto);
 }

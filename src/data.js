@@ -1,4 +1,6 @@
-export default [{"id":1,"name":"Kapu Melicope","color":"Indigo","description":"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.","price":51.94,"catagory":"girls","type":"athleticWear","isOnSale":false,"isInStock":true},
+export default [
+{"id":0,"name":"Daphnopsis","color":"Yellow","description":"Suspendisse potenti. Cras in purus eu magna vulputate luctus.","price":80.44,"catagory":"womens","type":"tops","isOnSale":false,"isInStock":true},
+{"id":1,"name":"Kapu Melicope","color":"Indigo","description":"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.","price":51.94,"catagory":"girls","type":"athleticWear","isOnSale":false,"isInStock":true},
 {"id":2,"name":"Rough Blackfoot","color":"Khaki","description":"Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.","price":42.93,"catagory":"womens","type":"tops","isOnSale":false,"isInStock":true},
 {"id":3,"name":"Jaborosa","color":"Pink","description":"Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.","price":70.9,"catagory":"mens","type":"athleticWear","isOnSale":false,"isInStock":true},
 {"id":4,"name":"Starke's Kiaeria Moss","color":"Fuscia","description":"Etiam justo. Etiam pretium iaculis justo.","price":53.25,"catagory":"mens","type":"jackets","isOnSale":false,"isInStock":true},
@@ -297,4 +299,4 @@ export default [{"id":1,"name":"Kapu Melicope","color":"Indigo","description":"C
 {"id":297,"name":"Chapman's Rhododendron","color":"Indigo","description":"Integer ac leo. Pellentesque ultrices mattis odio.","price":41.92,"catagory":"boys","type":"other","isOnSale":false,"isInStock":true},
 {"id":298,"name":"Chaffy Sedge","color":"Maroon","description":"Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.","price":42.46,"catagory":"girls","type":"other","isOnSale":false,"isInStock":true},
 {"id":299,"name":"Viper Beggarticks","color":"Purple","description":"Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.","price":129.92,"catagory":"girls","type":"jackets","isOnSale":false,"isInStock":true},
-{"id":300,"name":"Daphnopsis","color":"Yellow","description":"Suspendisse potenti. Cras in purus eu magna vulputate luctus.","price":80.44,"catagory":"womens","type":"tops","isOnSale":false,"isInStock":true}]
+]

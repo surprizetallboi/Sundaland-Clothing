@@ -22,7 +22,7 @@ export default function ItemDisplay(props) {
         </div>
 
         {/* <button className="addToCart" onClick={addToCart(D)}> */}
-        <button className="addToCart" onClick={() => addToCart(props.id-1)}>
+        <button className="addToCart" onClick={() => addToCart(props.id)}>
           {/* minus one because data starts at 1, and is at an index of 0 */}
           Add To Cart
         </button>

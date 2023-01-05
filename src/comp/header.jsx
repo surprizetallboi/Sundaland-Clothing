@@ -3,7 +3,7 @@ import "./header.css";
 import { useCart } from '../CartContext'
 
 export default function Header() {
-const { cart } = useCart()
+const { cart, emptyCart } = useCart()
 
   function itemsInCart(){
   if (cart.length === 0){
@@ -36,7 +36,7 @@ return " has 1 item"
         Cart {itemsInCart()}
       </a>
       <div className="search">
-        <div className="searchWord">Search</div>
+        <div className="searchWord" onClick={() => emptyCart()}>Search</div>
       </div>
     </div>
   );

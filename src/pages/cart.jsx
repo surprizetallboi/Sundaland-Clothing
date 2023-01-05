@@ -2,6 +2,7 @@ import React from "react";
 import "./cart.css"
 import { useCart } from '../CartContext'
 import CartItem from "../comp/cartItem";
+import Data from "../data.js";
 
 export default function Cart(){
 
@@ -9,24 +10,20 @@ const { cart, setCart } = useCart()
 
 console.log(cart);
 
-// function addToCart() {
-//   // setCart([]);
-//   setCart((oldCart) => [newItem, ...oldCart]);
-// }
-
-
   const cartMap = cart.map(i =>{
     return(
       <CartItem
-      key={i.id}
-      name={i.name}
-      price={i.price}
-      description={i.description}
-      color={i.color}
-      cat={i.catagory}
-      type={i.type}
-      isOnSale={i.isOnSale}
-      isInStock={i.isInStock}
+      key={Data[i.id].id}
+      id={Data[i.id].id}
+      name={Data[i.id].name}
+      price={Data[i.id].price}
+      description={Data[i.id].description}
+      color={Data[i.id].color}
+      cat={Data[i.id].catagory}
+      type={Data[i.id].type}
+      isOnSale={Data[i.id].isOnSale}
+      isInStock={Data[i.id].isInStock}
+      quant={i.quant}
       />
     )
   })

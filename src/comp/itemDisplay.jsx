@@ -1,16 +1,12 @@
 import React from "react";
 import "./itemDisplay.css";
 import Data from "../data.js";
-import { useCart } from '../CartContext'
-
+import { useCart } from "../CartContext";
 
 export default function ItemDisplay(props) {
-  const { cart, setCart } = useCart()
+  const { cart, setCart, addToCart, emptyCart } = useCart();
 
-function addToCart(newItem){
-  console.log(newItem);
-  setCart(oldCart => [newItem, ...oldCart]);
-}
+  
   return (
     <div className="itemDisplay">
       <div className="padding">
@@ -26,7 +22,8 @@ function addToCart(newItem){
         </div>
 
         {/* <button className="addToCart" onClick={addToCart(D)}> */}
-        <button className="addToCart" onClick={() => addToCart(Data[props.id - 1])}>
+        <button className="addToCart" onClick={() => addToCart(props.id-1)}>
+          {/* minus one because data starts at 1, and is at an index of 0 */}
           Add To Cart
         </button>
 

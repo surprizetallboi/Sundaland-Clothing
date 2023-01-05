@@ -3,7 +3,7 @@ import ItemDisplay from './itemDisplay'
 import "./viewport.css"
 
 export default function Veiwport({content}) {
-
+  
   const itemsDisplayed = content.map(i =>{
     return(
     <ItemDisplay className='canIPutClassNameHere'

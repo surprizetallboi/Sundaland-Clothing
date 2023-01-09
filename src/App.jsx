@@ -13,20 +13,6 @@ import Mens from "./pages/mens";
 import Cart from "./pages/cart";
 
 export default function App() {
-  // const [cart, setCart] = React.useState(
-  //   JSON.parse(localStorage.getItem("cart")) || []
-  // );
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, [cart]);
-
-  // function addToCart(newItem) {
-  //   setCart((oldCart) => [newItem, ...oldCart]);
-  // }
-  // function removeFromCart(event, itemID) {
-  //   event.stopPropagation();
-  // }
 
   return (
     <div className="App">

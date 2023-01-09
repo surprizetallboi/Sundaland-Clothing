@@ -1,19 +1,22 @@
 import React from "react";
 import Veiwport from "../comp/veiwport";
 import Banner from "../comp/banner";
-import Data from "../data.js";
+// import Data from "../data.js";
+import { useCart } from "../CartContext";
 
 export default function Mens(props) {
-  const mensSet = Data.filter((i) => i.catagory === "mens");
+  const { data } = useCart();
 
-  const mensOnSale = Data.filter(
+  const mensSet = data.filter((i) => i.catagory === "mens");
+
+  const mensOnSale = data.filter(
     (i) => i.catagory === "mens" && i.isOnSale && i.isInStock
   );
 
   return (
     <div className="mesn">
-      <Banner content={mensOnSale} />
-      <Veiwport key={mensSet[0].id} content={mensSet}/>
+      {data.length && <Banner content={mensOnSale} />}
+      {data.length && <Veiwport content={mensSet} />}
     </div>
   );
 }

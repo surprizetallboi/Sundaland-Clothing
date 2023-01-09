@@ -13,7 +13,7 @@ export default function Banner(props) {
       } else {
         setCount(0);
       }
-      console.log("is this running");
+      // console.log("is this running");
     }, 2000);
     return () => clearInterval(interval);
   }, []);

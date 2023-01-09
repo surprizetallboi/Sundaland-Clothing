@@ -5,14 +5,22 @@ import { useCart } from '../CartContext'
 export default function Header() {
 const { cart, emptyCart } = useCart()
 
+const initialValue = 0;
+const numOfItems = cart.reduce(
+  (accumulator, currentValue) => accumulator + currentValue.quant,
+  initialValue
+);
+
   function itemsInCart(){
-  if (cart.length === 0){
+  if (numOfItems === 0){
    return " is empty"
-  } else if (cart.length === 1){
+  } else if (numOfItems === 1){
 return " has 1 item"
   } else{
-    return ` has ${cart.length} items`
+    return ` has ${numOfItems} items`
   }}
+  
+
   
   return (
     <div className="header">

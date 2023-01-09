@@ -298,5 +298,5 @@ export default [
 {"id":296,"name":"Cetraria Lichen","color":"Indigo","description":"Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.","price":112.04,"catagory":"boys","type":"other","isOnSale":false,"isInStock":true},
 {"id":297,"name":"Chapman's Rhododendron","color":"Indigo","description":"Integer ac leo. Pellentesque ultrices mattis odio.","price":41.92,"catagory":"boys","type":"other","isOnSale":false,"isInStock":true},
 {"id":298,"name":"Chaffy Sedge","color":"Maroon","description":"Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.","price":42.46,"catagory":"girls","type":"other","isOnSale":false,"isInStock":true},
-{"id":299,"name":"Viper Beggarticks","color":"Purple","description":"Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.","price":129.92,"catagory":"girls","type":"jackets","isOnSale":false,"isInStock":true},
+// {"id":299,"name":"Viper Beggarticks","color":"Purple","description":"Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.","price":129.92,"catagory":"girls","type":"jackets","isOnSale":false,"isInStock":true},
 ]

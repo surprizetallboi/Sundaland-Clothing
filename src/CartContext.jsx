@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 const CartContext = React.createContext();
 
@@ -47,9 +47,25 @@ export function CartProvider({ children }) {
     setCart([{ id: 0, quant: 1 }]);
   }
 
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/items")
+    // fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((response) => { 
+        console.log(response);
+        setData(response);
+        setError(null);
+      })
+      .catch(setError);
+  }, []);
+
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, emptyCart, removeFromCart, setCart }}
+      value={{ cart, data, addToCart, emptyCart, removeFromCart, setCart }}
     >
       {children}
     </CartContext.Provider>

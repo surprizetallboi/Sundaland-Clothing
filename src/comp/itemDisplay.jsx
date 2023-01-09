@@ -29,7 +29,7 @@ export default function ItemDisplay(props) {
 
         <div className="onSale">
           {props.isOnSale && props.isInStock && (
-            <img src="./public/sale-badge.png" width={50} />
+            <img src="./sale-badge.png" width={50} />
           )}
         </div>
         <div className="InStock">

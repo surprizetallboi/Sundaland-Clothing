@@ -1,9 +1,9 @@
 .itemDisplay {
   position: relative;
-  width: 200px;
+  width: 250px;
   display: flex;
   flex-direction: column;
-  height: 310px;
+  height: 410px;
   background-color: rgb(76, 80, 141);
   align-items: left;
   font-family: Helvetica, sans-serif;
@@ -16,7 +16,7 @@
 } */
 
 .image {
-  width: 160px;
+  width: 200px;
   height: 180px;
   background-color: blueviolet;
   margin-bottom: 20px;
@@ -26,8 +26,8 @@
   flex-direction: row;
 }
 .padding {
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 25px;
+  margin-top: 40px;
 }
 
 .name {
@@ -35,6 +35,7 @@
   font-weight: 900;
   font-size: 20px;
   padding-bottom: 2px;
+  max-width: 200px;
 }
 
 .price {

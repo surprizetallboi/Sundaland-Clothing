@@ -5,10 +5,12 @@
   width: 100vw;
   display: flex;
   flex-direction: row;
-  height: 55px;
-  background-color: black;
+  height: 60px;
+  background-color:var(--header-bar-color);
+  color: var(--header-font-color);
   align-items: center;
   z-index: 10;
+  font-size: var (--title-font-size);
 }
 
 .space {
@@ -16,8 +18,10 @@
 }
 
 .headerTitle {
-  font-size: 50px;
+  font-size: 4em;
   margin-left: 30px;
+  font-weight: 300;
+  color: var(--header-font-color);
 }
 
 .search {
@@ -43,6 +47,9 @@
 .catHeader {
   margin-left: 35px;
   font-size: 23px;
+  color: var(--header-font-color);
+  text-transform: uppercase;
+  font-weight: 800;
 }
 
 @media (max-width: 1050px) {

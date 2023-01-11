@@ -6,13 +6,14 @@ import { useCart } from "../CartContext";
 
 export default function Home(props) {
   const { data } = useCart();
+  if (!data.length) return <div>Loading</div>;
 
   const allOnSale = data.filter((i) => i.isOnSale && i.isInStock);
 
   return (
     <div className="home">
-      {data.length && <Banner content={allOnSale} />}
-      {data.length &&  <Veiwport content={data} />}
+      {<Banner content={allOnSale} />}
+      {<Veiwport content={data} />}
     </div>
   );
 }

@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   height: 410px;
-  background-color: rgb(76, 80, 141);
-  align-items: left;
+  background-color: var(--box-color);
+  /* align-items: right; */
+  border-radius: 20px;;
   font-family: Helvetica, sans-serif;
   /* transition: width .5s, height .5s; */
 }
@@ -20,11 +21,14 @@
   height: 180px;
   background-color: blueviolet;
   margin-bottom: 20px;
+  border-radius: 20px;
 }
+
 .row {
   display: flex;
   flex-direction: row;
 }
+
 .padding {
   margin-left: 25px;
   margin-top: 40px;
@@ -36,6 +40,7 @@
   font-size: 20px;
   padding-bottom: 2px;
   max-width: 200px;
+  color: var(--header-bar-color);
 }
 
 .price {
@@ -43,6 +48,7 @@
   font-size: 15px;
   font-weight: 100;
   margin-right: 10px;
+  color: var(--header-bar-color);
 }
 
 .onSale {

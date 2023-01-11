@@ -6,6 +6,10 @@ import CartItem from "../comp/cartItem";
 export default function Cart() {
   const { cart, data, setCart } = useCart();
 
+  if (!data.length) return <div>Loading</div>;
+
+  console.log(data);
+
   const initialValue = 0;
   const preSubTotal = cart.reduce(
     (accumulator, currentValue) =>
@@ -47,7 +51,6 @@ export default function Cart() {
   return (
     <div className="cart">
       {cartMap}
-      
       {subTotal}
       <br />
       {discountTotal}

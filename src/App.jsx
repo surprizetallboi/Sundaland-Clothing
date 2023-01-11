@@ -27,6 +27,7 @@ export default function App() {
         {/* <Route exact path="/girls" element={<Girls />} />
         <Route exact path="/boys" element={<Boys />} /> */}
         <Route exact path="/cart" element={<Cart />} />
+        {/* <Route exact part={`/item/${x}`} element={<Cart item={x} />} /> */}
       </Routes>
       </CartProvider> 
     </div>

@@ -46,19 +46,21 @@ export default function Banner(props) {
 
   return (
     <div className="banner">
-      <div className="banItems">
-        <div className="banName">{props.content[count].name}</div>
-        <div className="banPrice">${props.content[count].price}</div>
-        <div className="banDescrip">{props.content[count].description}</div>
-        <div className="countWrapper">
-          <div className="minCount count" onClick={minCount}>
-            -
-          </div>
-          <div className="space" />
-          <div className="addCount count" onClick={addCount}>
-            +
-          </div>
+      <div className="square">
+        <div className="banItems">
+          <div className="banName">{props.content[count].name}</div>
+          <div className="banPrice">${props.content[count].price}</div>
+          <div className="banDescrip">{props.content[count].description}</div>
         </div>
+        <div className="countWrapper">
+            <div className="minCount count" onClick={minCount}>
+              -
+            </div>
+            <div className="space" />
+            <div className="addCount count" onClick={addCount}>
+              +
+            </div>
+          </div>
       </div>
     </div>
   );

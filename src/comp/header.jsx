@@ -28,16 +28,16 @@ return " has 1 item"
         SUNDALAND
       </a>
       <a href="/womens" className="catHeader">
-        Womens
+        Women's
       </a>
       <a href="/mens" className="catHeader">
-        Mens
+        Men's
       </a>
       <a href="/girls" className="catHeader">
-        Girls
+        Girl's
       </a>
       <a href="/boys" className="catHeader">
-        Boys
+        Boy's
       </a>
       <div className="space" />
       <a href="/cart" className="headerCart">

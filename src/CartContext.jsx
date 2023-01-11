@@ -55,7 +55,7 @@ export function CartProvider({ children }) {
     // fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((response) => { 
-        console.log(response);
+        // console.log(response);
         setData(response);
         setError(null);
       })

@@ -44,7 +44,7 @@ export function CartProvider({ children }) {
   }
 
   function emptyCart() {
-    setCart([{ id: 0, quant: 1 }]);
+    setCart([]);
   }
 
   const [data, setData] = useState([]);

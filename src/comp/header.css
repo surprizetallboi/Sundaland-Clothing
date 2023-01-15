@@ -41,8 +41,9 @@
   right: 20px;
 }
 
-/* .cart{
-} */
+.cart{
+  color: var(--header-font-color);
+}
 
 .catHeader {
   margin-left: 35px;

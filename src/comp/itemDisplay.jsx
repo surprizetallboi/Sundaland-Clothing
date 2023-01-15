@@ -1,6 +1,5 @@
 import React from "react";
 import "./itemDisplay.css";
-import Data from "../data.js";
 import { useCart } from "../CartContext";
 
 export default function ItemDisplay(props) {
@@ -21,7 +20,6 @@ export default function ItemDisplay(props) {
           <div className="color">{props.type}</div>
         </div>
 
-        {/* <button className="addToCart" onClick={addToCart(D)}> */}
         <button className="addToCart" onClick={() => addToCart(props.id)}>
           {/* minus one because data starts at 1, and is at an index of 0 */}
           Add To Cart

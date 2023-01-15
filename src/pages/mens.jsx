@@ -1,7 +1,6 @@
 import React from "react";
 import Veiwport from "../comp/veiwport";
 import Banner from "../comp/banner";
-// import Data from "../data.js";
 import { useCart } from "../CartContext";
 
 export default function Mens(props) {

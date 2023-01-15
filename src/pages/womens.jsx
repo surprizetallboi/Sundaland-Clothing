@@ -1,14 +1,13 @@
 import React from "react";
 import Veiwport from "../comp/veiwport";
 import Banner from "../comp/banner";
-import Data from "../data.js";
 import { useCart } from "../CartContext";
 
 export default function Womens(props) {
   const { data } = useCart();
 
-  const womensSet = Data.filter((i) => i.catagory === "womens");
-  const womensOnSale = Data.filter(
+  const womensSet = data.filter((i) => i.catagory === "womens");
+  const womensOnSale = data.filter(
     (i) => i.catagory === "womens" && i.isOnSale && i.isInStock
   );
 

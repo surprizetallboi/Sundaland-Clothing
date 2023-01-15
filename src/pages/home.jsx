@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-// import Data from "../data";
+import React from "react";
 import Veiwport from "../comp/veiwport";
 import Banner from "../comp/banner";
 import { useCart } from "../CartContext";

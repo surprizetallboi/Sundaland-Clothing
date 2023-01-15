@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLoaderData } from "react-router-dom";
 import { CartProvider } from './CartContext'
 
 import Header from "./comp/header";
@@ -11,8 +11,11 @@ import Mens from "./pages/mens";
 // import Boys from './pages/boys';
 
 import Cart from "./pages/cart";
+import Item from "./comp/individualItem"
 
 export default function App() {
+
+
 
   return (
     <div className="App">
@@ -27,7 +30,13 @@ export default function App() {
         {/* <Route exact path="/girls" element={<Girls />} />
         <Route exact path="/boys" element={<Boys />} /> */}
         <Route exact path="/cart" element={<Cart />} />
-        {/* <Route exact part={`/item/${x}`} element={<Cart item={x} />} /> */}
+        <Route
+        exact path="items/:item"
+        // element={<Item />} 
+        loader={({ params }) => {return fetchItem(params.item);}}
+        element={<Item />}
+    
+    />
       </Routes>
       </CartProvider> 
     </div>

@@ -6,25 +6,21 @@ import "./itemDisplay.css";
 
 export default function individualItem() {
     const { data } = useCart();
-
-    // if (!data.length) return <div>Loading</div>;
-
     const { item } = useParams()
-    console.log(`this is item num ${item}`);
-
-
-  // return (
-  //   <ItemDisplay className='canIPutClassNameHere'
-  //   key={data[item].id}
-  //   id={data[item].id}
-  //   name={data[item].name}
-  //   price={data[item].price}
-  //   // description={data[item].description}
-  //   color={data[item].color}
-  //   cat={data[item].catagory}
-  //   type={data[item].type}
-  //   isOnSale={data[item].isOnSale}
-  //   isInStock={data[item].isInStock}
-  //   />
-  // )
+    if (!data.length) return <div>Loading</div>;
+    
+  return (
+    <ItemDisplay className='canIPutClassNameHere'
+    key={data[Number(item)].id}
+    id={data[Number(item)].id}
+    name={data[Number(item)].name}
+    price={data[Number(item)].price}
+    // description={data[Number(item)].description}
+    color={data[Number(item)].color}
+    cat={data[Number(item)].catagory}
+    type={data[Number(item)].type}
+    isOnSale={data[Number(item)].isOnSale}
+    isInStock={data[Number(item)].isInStock}
+    />
+  )
 }

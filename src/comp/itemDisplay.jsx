@@ -8,6 +8,7 @@ export default function ItemDisplay(props) {
   
   return (
     <div className="itemDisplay">
+      <a href={`/items/${props.id}`} >
       <div className="padding">
         <div className="image"></div>
         <div className="name">{props.name}</div>
@@ -34,6 +35,7 @@ export default function ItemDisplay(props) {
           {!props.isInStock && <div className="inStockBadge">Out of Stock</div>}
         </div>
       </div>
+      </a>
     </div>
   );
 }

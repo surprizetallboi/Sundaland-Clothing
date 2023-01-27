@@ -1,6 +1,7 @@
 import React from "react";
 import "./itemDisplay.css";
 import { useCart } from "../CartContext";
+import { Button } from "grommet";
 
 export default function ItemDisplay(props) {
   const { cart, setCart, addToCart, emptyCart } = useCart();

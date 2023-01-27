@@ -1,5 +1,5 @@
 import React from "react";
-import Veiwport from "../comp/veiwport";
+import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
 import { useCart } from "../CartContext";
 
@@ -15,7 +15,7 @@ export default function Mens(props) {
   return (
     <div className="mesn">
       {data.length && <Banner content={mensOnSale} />}
-      {data.length && <Veiwport content={mensSet} />}
+      {data.length && <Viewport content={mensSet} />}
     </div>
   );
 }

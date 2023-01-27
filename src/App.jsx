@@ -13,6 +13,8 @@ import Mens from "./pages/mens";
 import Cart from "./pages/cart";
 import Item from "./comp/individualItem";
 
+import { Footer } from "grommet";
+
 export default function App() {
   return (
     <div className="App">
@@ -28,6 +30,7 @@ export default function App() {
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="items/:item" element={<Item />} />
         </Routes>
+        {/* <Footer background="#23036a"> Test</Footer> */}
       </CartProvider>
     </div>
   );

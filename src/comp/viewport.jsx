@@ -2,7 +2,7 @@ import React from 'react'
 import ItemDisplay from './itemDisplay'
 import "./viewport.css"
 
-export default function Veiwport({content}) {
+export default function Viewport({content}) {
   
   const itemsDisplayed = content.map(i =>{
     return(

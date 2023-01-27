@@ -51,11 +51,10 @@ export function CartProvider({ children }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/items")
-    // fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:3000/items/")
       .then((response) => response.json())
       .then((response) => { 
-        // console.log(response);
+        console.log(response);
         setData(response);
         setError(null);
       })

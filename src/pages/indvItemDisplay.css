@@ -1,0 +1,48 @@
+.indvItemDisplay {
+  position: relative;
+  top: 55px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  font-family: Helvetica, sans-serif;
+  padding-top: 1em;
+}
+
+.square {
+  width: 90vw;
+  height: 35em;
+  background-color: #889a8e;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  border-radius: 2em;
+  position: relative;
+}
+
+.itemsCollum {
+    margin-left: 100px;
+    margin-top: 50px;
+  }
+  
+  .indvItemName {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 40px;
+    padding-bottom: 15px;
+  }
+  
+  .price {
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: 100;
+  }
+  
+  .descrip {
+    max-width: 550px;
+    font-size: 20px;
+    font-weight: 500;
+  }

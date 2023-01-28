@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useCart } from "../CartContext";
 import "./banner.css";
 
 let interval;
 
 export default function Banner(props) {
+
+  const {addToCart} = useCart();
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -43,15 +47,20 @@ export default function Banner(props) {
     }
     clearInterval(interval);
   }
-
+console.log(props.content[count]._id);
   return (
     <div className="banner">
-      <a href={`/items/${props.content[count].id}`}>
+      <a href={`/items/${props.content[count]._id}`}>
         <div className="square">
           <div className="banItems">
             <div className="banName">{props.content[count].name}</div>
             <div className="banPrice">${props.content[count].price}</div>
             <div className="banDescrip">{props.content[count].description}</div>
+            <button
+            className="addToCart"
+            onClick={() => addToCart(props.content[count]._id)}>
+                      Add To Cart
+          </button>
           </div>
         </div>
       </a>

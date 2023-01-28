@@ -7,12 +7,11 @@ export default function Cart() {
   const { cart, setCart } = useCart();
   const [data, setData] = useState([]);
 
-  // if (!data.length) return <div>Loading</div>;
-
+  
   useEffect(() => {
     async function fetchData() {
       const cartMap = cart.map(async (item) => {
-        const response = await fetch(`http://localhost:3000/items/${item.id}`);
+        const response = await fetch(`http://localhost:3000/items/${item._id}`);
         const json = await response.json();
         return json;
       });
@@ -21,29 +20,28 @@ export default function Cart() {
       setData(thingy);
     }
     fetchData();
-  }, []);
+  }, [cart]);
 
-  // useEffect(()=>{
 
-  const initialValue = 0;
-  const preSubTotal = data.reduce(
-    (accumulator, currentValue, i) =>
-      accumulator + cart[i].quant * currentValue.price,
-    initialValue
-  );
-  const subTotal = Math.ceil((preSubTotal + Number.EPSILON) * 100) / 100;
+  // const initialValue = 0;
+  // const preSubTotal = data.reduce(
+  //   (accumulator, currentValue, i) =>
+  //     accumulator + cart[i].quant * currentValue.price,
+  //   initialValue
+  // );
+  // const subTotal = Math.ceil((preSubTotal + Number.EPSILON) * 100) / 100;
 
-  // which items are discounted?
-  const discountedItems = data.filter((i) => i.isOnSale);
-  //take those and do math
-  const preDiscountTotal = discountedItems.reduce(
-    (accumulator, currentValue, i) =>
-      accumulator + cart[i].quant * (currentValue.price * 0.2),
-    initialValue
-  );
-  //round up
-  const discountTotal =
-    Math.ceil((preDiscountTotal + Number.EPSILON) * 100) / 100;
+  // // which items are discounted?
+  // const discountedItems = data.filter((i) => i.isOnSale);
+  // //take those and do math
+  // const preDiscountTotal = discountedItems.reduce(
+  //   (accumulator, currentValue, i) =>
+  //     accumulator + cart[i].quant * (currentValue.price * 0.2),
+  //   initialValue
+  // );
+  // //round up
+  // const discountTotal =
+  //   Math.ceil((preDiscountTotal + Number.EPSILON) * 100) / 100;
 
   // }, [data]);
 
@@ -53,15 +51,18 @@ export default function Cart() {
   console.log("data", data);
 
   const dataMap = data.map((item) => {
-    return <CartItem item={item} key={item._id} />;
+    return <CartItem item={item} key={item._id}/>;
   });
+  
+  if (!data.length) return(
+  <div>Loading</div>)
 
   return (
     <div className="cart">
       {dataMap}
-      {subTotal}
+      {/* {subTotal} */}
       <br />
-      {discountTotal}
+      {/* {discountTotal} */}
     </div>
   );
 }

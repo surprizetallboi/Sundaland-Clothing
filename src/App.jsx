@@ -11,7 +11,7 @@ import Mens from "./pages/mens";
 // import Boys from './pages/boys';
 
 import Cart from "./pages/cart";
-import Item from "./comp/individualItem";
+import Item from "./pages/indvItemDisplay";
 
 import { Footer } from "grommet";
 

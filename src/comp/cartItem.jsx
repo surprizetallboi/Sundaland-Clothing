@@ -8,7 +8,7 @@ export default function CartItem(props) {
   return (
     <div className="cartItem">
       <div className="padding">
-        <button onClick={() => removeFromCart(props.item.id)}>
+        <button onClick={() => removeFromCart(props.item._id)}>
           <div className="image">
           <div className="name">{props.item.name}</div>
           </div>
@@ -28,7 +28,7 @@ export default function CartItem(props) {
           <div className="price">{props.item.category}</div>
           <div className="color">{props.item.type}</div>
         </div>
-        <div className="quant" onClick={() => addToCart(props.item.id)}>{props.item.quant}</div>
+        <div className="quant" onClick={() => addToCart(props.item._id)}>{props.quant}</div>
 
         <div className="onSale">
           {props.item.isOnSale && props.item.isInStock && (

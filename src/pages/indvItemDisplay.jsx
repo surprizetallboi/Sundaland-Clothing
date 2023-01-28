@@ -1,0 +1,60 @@
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ItemDisplay from "../comp/itemDisplay";
+import "./indvItemDisplay.css";
+import { useCart } from "../CartContext";
+
+export default function indvItemDisplay() {
+  const { addToCart } = useCart();
+
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const { item } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/items/${item}`)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        setData(response);
+        setError(null);
+      })
+      .catch(setError);
+  }, []);
+
+  return (
+    <div className="indvItemDisplay">
+      <div className="square">
+        <div className="padding">
+          <div className="itemsCollum">
+            <div className="indvItemName">{data.name}</div>
+            <div className="descrip">{data.description}</div>
+            <div className="row">
+              <div className="price">{data.price}</div>
+              <div className="color">{data.color}</div>
+            </div>
+            <div className="row">
+              <div className="price">{data.catagory}</div>
+              <div className="color">{data.type}</div>
+            </div>
+            <button className="addToCart" onClick={() => addToCart(data._id)}>
+              {/* minus one because data starts at 1, and is at an index of 0 */}
+              Add To Cart
+            </button>
+          </div>
+
+          <div className="onSale">
+            {data.isOnSale && data.isInStock && (
+              <img src="./sale-badge.png" width={50} />
+            )}
+          </div>
+          <div className="InStock">
+            {!data.isInStock && (
+              <div className="inStockBadge">Out of Stock</div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

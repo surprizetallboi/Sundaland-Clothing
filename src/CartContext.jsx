@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 const CartContext = React.createContext();
 
@@ -15,10 +15,11 @@ export function CartProvider({ children }) {
   }, [cart]);
 
   function addToCart(newItemID) {
-    const cartI = cart.findIndex((cartItem) => cartItem.id === newItemID);
+    console.log("clicked");
+    const cartI = cart.findIndex((cartItem) => cartItem._id === newItemID);
     // cartItem will become the ID number of a match, or be false
     if (cartI < 0) {
-      const newCartItem = { id: newItemID, quant: 1 };
+      const newCartItem = { _id: newItemID, quant: 1 };
       setCart((oldCart) => [newCartItem, ...oldCart]);
     } else {
       const oldCartItem = cart[cartI];
@@ -26,14 +27,14 @@ export function CartProvider({ children }) {
       const newCartBeforeItem = cart.slice(0, cartI);
       const newCartAfterItem = cart.slice(cartI + 1);
       setCart([...newCartBeforeItem, oldCartItem, ...newCartAfterItem]);
+      console.log(cart);
     }
   }
 
   function removeFromCart(itemId) {
-    const cartI = cart.findIndex((cartItem) => cartItem.id === itemId);
-
+    const cartI = cart.findIndex((cartItem) => cartItem._id === itemId);
     if (cart[cartI].quant === 1) {
-      setCart(cart.filter((v) => v.id !== itemId));
+      setCart(cart.filter((v) => v._id !== itemId));
     } else {
       const oldCartItem = cart[cartI];
       oldCartItem.quant--;
@@ -41,30 +42,30 @@ export function CartProvider({ children }) {
       const newCartAfterItem = cart.slice(cartI + 1);
       setCart([...newCartBeforeItem, oldCartItem, ...newCartAfterItem]);
     }
-  }
+}
 
   function emptyCart() {
     setCart([]);
   }
 
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  // const [data, setData] = useState([]);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/items/")
-      .then((response) => response.json())
-      .then((response) => { 
-        // console.log(response);
-        setData(response);
-        setError(null);
-      })
-      .catch(setError);
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/items/")
+  //     .then((response) => response.json())
+  //     .then((response) => { 
+  //       // console.log(response);
+  //       setData(response);
+  //       setError(null);
+  //     })
+  //     .catch(setError);
+  // }, []);
 
 
   return (
     <CartContext.Provider
-      value={{ cart, data, addToCart, emptyCart, removeFromCart, setCart }}
+      value={{ cart, addToCart, emptyCart, removeFromCart, setCart }}
     >
       {children}
     </CartContext.Provider>

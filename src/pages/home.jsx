@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
-import { useCart } from "../CartContext";
 import { Spinner } from "grommet";
 
 export default function Home(props) {
-  const { data } = useCart();
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/items/")
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        setData(response);
+        setError(null);
+      })
+      .catch(setError);
+  }, []);
+
+
   if (!data.length)
     return (
       <div className="spinner">

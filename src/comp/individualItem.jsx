@@ -1,26 +1,38 @@
-import React from 'react'
-import { useCart } from "../CartContext"
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDisplay from './itemDisplay'
 import "./itemDisplay.css";
 
 export default function individualItem() {
-    const { data } = useCart();
-    const { item } = useParams()
-    if (!data.length) return <div>Loading</div>;
+  
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const { item } = useParams()
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/items/${item}`)
+      .then((response) => response.json())
+      .then((response) => { 
+        console.log(response);
+        setData(response);
+        setError(null);
+      })
+      .catch(setError);
+  }, []);
+
     
   return (
     <ItemDisplay className='canIPutClassNameHere'
-    key={data[Number(item)].id}
-    id={data[Number(item)].id}
-    name={data[Number(item)].name}
-    price={data[Number(item)].price}
-    // description={data[Number(item)].description}
-    color={data[Number(item)].color}
-    cat={data[Number(item)].catagory}
-    type={data[Number(item)].type}
-    isOnSale={data[Number(item)].isOnSale}
-    isInStock={data[Number(item)].isInStock}
+    key={data.id}
+    id={data.id}
+    name={data.name}
+    price={data.price}
+    // description={data.description}
+    color={data.color}
+    cat={data.catagory}
+    type={data.type}
+    isOnSale={data.isOnSale}
+    isInStock={data.isInStock}
     />
   )
 }

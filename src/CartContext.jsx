@@ -54,7 +54,7 @@ export function CartProvider({ children }) {
     fetch("http://localhost:3000/items/")
       .then((response) => response.json())
       .then((response) => { 
-        console.log(response);
+        // console.log(response);
         setData(response);
         setError(null);
       })

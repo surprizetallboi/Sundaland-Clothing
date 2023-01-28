@@ -8,7 +8,7 @@ export default function Viewport({content}) {
     return(
     <ItemDisplay className='canIPutClassNameHere'
     key={i.id}
-    id={i.id}
+    id={i._id}
     name={i.name}
     price={i.price}
     // description={i.description}

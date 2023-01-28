@@ -1,59 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./cart.css";
 import { useCart } from "../CartContext";
 import CartItem from "../comp/cartItem";
 
 export default function Cart() {
-  const { cart, data, setCart } = useCart();
+  const { cart, setCart } = useCart();
+  const [data, setData] = useState([]);
 
-  if (!data.length) return <div>Loading</div>;
+  // if (!data.length) return <div>Loading</div>;
 
-  console.log(data);
+  useEffect(() => {
+    async function fetchData() {
+      const cartMap = cart.map(async (item) => {
+        const response = await fetch(`http://localhost:3000/items/${item.id}`);
+        const json = await response.json();
+        return json;
+      });
+      const thingy = await Promise.all(cartMap);
 
+      setData(thingy);
+    }
+    fetchData();
+  }, []);
+
+//keep price in state, run this in my map, and set state to price+new ammount
   const initialValue = 0;
   const preSubTotal = cart.reduce(
     (accumulator, currentValue) =>
-      accumulator + currentValue.quant * data[currentValue.id].price,
+      accumulator + currentValue.quant * data.price,
     initialValue
   );
   const subTotal = Math.ceil((preSubTotal + Number.EPSILON) * 100) / 100;
 
   // which items are discounted?
-  const discountedItems = cart.filter((i) => data[i.id].isOnSale);
+  const discountedItems = cart.filter((i) => data[i._id].isOnSale);
   //take those and do math
   const preDiscountTotal = discountedItems.reduce(
     (accumulator, currentValue) =>
-      accumulator + currentValue.quant * (data[currentValue.id].price * 0.2),
+      accumulator + currentValue.quant * (data[currentValue._id].price * 0.2),
     initialValue
   );
   //round up
   const discountTotal =
     Math.ceil((preDiscountTotal + Number.EPSILON) * 100) / 100;
 
-  const cartMap = cart.map((i) => {
-    return (
-      <CartItem
-        key={data[i.id].id}
-        id={data[i.id].id}
-        name={data[i.id].name}
-        price={data[i.id].price}
-        description={data[i.id].description}
-        color={data[i.id].color}
-        cat={data[i.id].catagory}
-        type={data[i.id].type}
-        isOnSale={data[i.id].isOnSale}
-        isInStock={data[i.id].isInStock}
-        quant={i.quant}
-      />
-    );
-  });
+
+  console.log("cart", cart);
+  console.log("data", data);
+
+  const dataMap = data.map((item) => {
+    
+    return(
+    <CartItem item={item} key={item._id}/>
+  )});
 
   return (
     <div className="cart">
-      {cartMap}
-      {subTotal}
+      {dataMap}
+      {/* {subTotal} */}
       <br />
-      {discountTotal}
+      {/* {discountTotal} */}
     </div>
   );
 }

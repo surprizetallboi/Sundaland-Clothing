@@ -23,43 +23,45 @@ export default function Cart() {
     fetchData();
   }, []);
 
-//keep price in state, run this in my map, and set state to price+new ammount
+  // useEffect(()=>{
+
   const initialValue = 0;
-  const preSubTotal = cart.reduce(
-    (accumulator, currentValue) =>
-      accumulator + currentValue.quant * data.price,
+  const preSubTotal = data.reduce(
+    (accumulator, currentValue, i) =>
+      accumulator + cart[i].quant * currentValue.price,
     initialValue
   );
   const subTotal = Math.ceil((preSubTotal + Number.EPSILON) * 100) / 100;
 
   // which items are discounted?
-  const discountedItems = cart.filter((i) => data[i._id].isOnSale);
+  const discountedItems = data.filter((i) => i.isOnSale);
   //take those and do math
   const preDiscountTotal = discountedItems.reduce(
-    (accumulator, currentValue) =>
-      accumulator + currentValue.quant * (data[currentValue._id].price * 0.2),
+    (accumulator, currentValue, i) =>
+      accumulator + cart[i].quant * (currentValue.price * 0.2),
     initialValue
   );
   //round up
   const discountTotal =
     Math.ceil((preDiscountTotal + Number.EPSILON) * 100) / 100;
 
+  // }, [data]);
+
+  //keep price in state, run this in my map, and set state to price+new ammount
 
   console.log("cart", cart);
   console.log("data", data);
 
   const dataMap = data.map((item) => {
-    
-    return(
-    <CartItem item={item} key={item._id}/>
-  )});
+    return <CartItem item={item} key={item._id} />;
+  });
 
   return (
     <div className="cart">
       {dataMap}
-      {/* {subTotal} */}
+      {subTotal}
       <br />
-      {/* {discountTotal} */}
+      {discountTotal}
     </div>
   );
 }

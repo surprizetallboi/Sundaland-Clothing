@@ -13,39 +13,42 @@ export default function Cart() {
       const cartMap = cart.map(async (item) => {
         const response = await fetch(`http://localhost:3000/items/${item._id}`);
         const json = await response.json();
+        response.quant = item.quant
         return json;
       });
       const thingy = await Promise.all(cartMap);
-
+      thingy.forEach((i) => {
+        const cartI = cart.findIndex((x) => x._id === i._id)
+        return(
+        i.quant =cart[cartI].quant)})
       setData(thingy);
     }
     fetchData();
   }, [cart]);
+  
+  const initialValue = 0;
+  const preSubTotal = data.reduce(
+    (accumulator, currentValue, i) =>
+      accumulator + data[i].quant * currentValue.price,
+    initialValue
+  );
+  const subTotal = Math.ceil((preSubTotal + Number.EPSILON) * 100) / 100;
+
+  // which items are discounted?
+  const discountedItems = data.filter((i) => i.isOnSale);
+  //take those and do math
+  const preDiscountTotal = discountedItems.reduce(
+    (accumulator, currentValue, i) =>
+      accumulator + data[i].quant * (currentValue.price * 0.2),
+    initialValue
+  );
+  //round up
+  const discountTotal =
+    Math.ceil((preDiscountTotal + Number.EPSILON) * 100) / 100;
 
 
-  // const initialValue = 0;
-  // const preSubTotal = data.reduce(
-  //   (accumulator, currentValue, i) =>
-  //     accumulator + cart[i].quant * currentValue.price,
-  //   initialValue
-  // );
-  // const subTotal = Math.ceil((preSubTotal + Number.EPSILON) * 100) / 100;
 
-  // // which items are discounted?
-  // const discountedItems = data.filter((i) => i.isOnSale);
-  // //take those and do math
-  // const preDiscountTotal = discountedItems.reduce(
-  //   (accumulator, currentValue, i) =>
-  //     accumulator + cart[i].quant * (currentValue.price * 0.2),
-  //   initialValue
-  // );
-  // //round up
-  // const discountTotal =
-  //   Math.ceil((preDiscountTotal + Number.EPSILON) * 100) / 100;
-
-  // }, [data]);
-
-  //keep price in state, run this in my map, and set state to price+new ammount
+  // keep price in state, run this in my map, and set state to price+new ammount
 
   console.log("cart", cart);
   console.log("data", data);
@@ -60,9 +63,9 @@ export default function Cart() {
   return (
     <div className="cart">
       {dataMap}
-      {/* {subTotal} */}
+      {subTotal}
       <br />
-      {/* {discountTotal} */}
+      {discountTotal}
     </div>
   );
 }

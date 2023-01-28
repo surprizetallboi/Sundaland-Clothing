@@ -28,7 +28,7 @@ export default function CartItem(props) {
           <div className="price">{props.item.category}</div>
           <div className="color">{props.item.type}</div>
         </div>
-        <div className="quant" onClick={() => addToCart(props.item._id)}>{props.quant}</div>
+        <div className="quant" onClick={() => addToCart(props.item._id)}>{props.item.quant}</div>
 
         <div className="onSale">
           {props.item.isOnSale && props.item.isInStock && (

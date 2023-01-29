@@ -71,3 +71,13 @@
   position: absolute;
   bottom: 20px;
 }
+
+.oldPrice{
+  text-decoration: line-through;
+  color: red;
+}
+
+.disPrice{
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}

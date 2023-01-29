@@ -14,7 +14,9 @@ export default function CartItem(props) {
           </div>
         </button>
         <div className="row">
-          <div className="price">{props.item.price}</div>
+        {!props.item.isOnSale && <div className="price">{props.item.price}</div>}
+          {props.item.isOnSale && <div className="oldPrice">{props.item.price}</div>}
+          {props.item.isOnSale && <div className="disPrice">{Math.ceil((props.item.price*.8)*100)/100}</div>}
 
           <div className="onSale">
           {props.item.isOnSale && props.item.isInStock && (

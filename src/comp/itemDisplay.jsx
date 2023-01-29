@@ -14,7 +14,9 @@ export default function ItemDisplay(props) {
           <div className="image"></div>
           <div className="name">{props.item.name}</div>
           <div className="row">
-            <div className="price">{props.item.price}</div>
+          {!props.item.isOnSale && <div className="price">{props.item.price}</div>}
+          {props.item.isOnSale && <div className="oldPrice">{props.item.price}</div>}
+          {props.item.isOnSale && <div className="disPrice">{Math.ceil((props.item.price*.8)*100)/100}</div>}
             <div className="color">{props.item.color}</div>
           </div>
           <div className="row">

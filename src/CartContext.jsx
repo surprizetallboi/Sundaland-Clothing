@@ -15,7 +15,6 @@ export function CartProvider({ children }) {
   }, [cart]);
 
   function addToCart(newItemID) {
-    console.log("clicked");
     const cartI = cart.findIndex((cartItem) => cartItem._id === newItemID);
     // cartItem will become the ID number of a match, or be false
     if (cartI < 0) {
@@ -27,7 +26,6 @@ export function CartProvider({ children }) {
       const newCartBeforeItem = cart.slice(0, cartI);
       const newCartAfterItem = cart.slice(cartI + 1);
       setCart([...newCartBeforeItem, oldCartItem, ...newCartAfterItem]);
-      console.log(cart);
     }
   }
 
@@ -42,26 +40,11 @@ export function CartProvider({ children }) {
       const newCartAfterItem = cart.slice(cartI + 1);
       setCart([...newCartBeforeItem, oldCartItem, ...newCartAfterItem]);
     }
-}
+  }
 
   function emptyCart() {
     setCart([]);
   }
-
-  // const [data, setData] = useState([]);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/items/")
-  //     .then((response) => response.json())
-  //     .then((response) => { 
-  //       // console.log(response);
-  //       setData(response);
-  //       setError(null);
-  //     })
-  //     .catch(setError);
-  // }, []);
-
 
   return (
     <CartContext.Provider

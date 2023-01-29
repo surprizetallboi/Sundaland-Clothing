@@ -10,13 +10,11 @@ export default function Home(props) {
     fetch("http://localhost:3000/items/")
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setData(response);
         setError(null);
       })
       .catch(setError);
   }, []);
-
 
   if (!data.length)
     return (
@@ -32,5 +30,5 @@ export default function Home(props) {
       <Banner content={allOnSale} />
       <Viewport content={data} />
     </div>
-  );
+  )
 }

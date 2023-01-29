@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemDisplay from "../comp/itemDisplay";
 import "./indvItemDisplay.css";
 import { useCart } from "../CartContext";
+import ItemsLikeThis from "../comp/itemsLikeThis"
 
 export default function indvItemDisplay() {
   const { addToCart } = useCart();
@@ -30,7 +31,9 @@ export default function indvItemDisplay() {
             <div className="indvItemName">{data.name}</div>
             <div className="descrip">{data.description}</div>
             <div className="row">
-              <div className="price">{data.price}</div>
+            {!data.isOnSale && <div className="price">{data.price}</div>}
+          {data.isOnSale && <div className="oldPrice">{data.price}</div>}
+          {data.isOnSale && <div className="disPrice">{Math.ceil((data.price*.8)*100)/100}</div>}
               <div className="color">{data.color}</div>
             </div>
             <div className="row">
@@ -45,7 +48,7 @@ export default function indvItemDisplay() {
 
           <div className="onSale">
             {data.isOnSale && data.isInStock && (
-              <img src="./sale-badge.png" width={50} />
+              <img src="../sale-badge.png" width={50} />
             )}
           </div>
           <div className="InStock">
@@ -55,6 +58,7 @@ export default function indvItemDisplay() {
           </div>
         </div>
       </div>
+      {/* <ItemsLikeThis catagory={data.catagory} type={data.type} /> */}
     </div>
   );
 }

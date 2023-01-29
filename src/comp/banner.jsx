@@ -5,8 +5,7 @@ import "./banner.css";
 let interval;
 
 export default function Banner(props) {
-
-  const {addToCart} = useCart();
+  const { addToCart } = useCart();
 
   const [count, setCount] = useState(0);
 
@@ -17,7 +16,6 @@ export default function Banner(props) {
       } else {
         setCount(0);
       }
-      // console.log("is this running");
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -47,30 +45,32 @@ export default function Banner(props) {
     }
     clearInterval(interval);
   }
-console.log(props.content[count]._id);
   return (
     <div className="banner">
       <a href={`/items/${props.content[count]._id}`}>
         <div className="square">
           <div className="banItems">
             <div className="banName">{props.content[count].name}</div>
-            <div className="banPrice">${props.content[count].price}</div>
+  
+          <div className="oldPrice">{props.content[count].price}</div>
+          <div className="disPrice">{Math.ceil((props.content[count].price*.8)*100)/100}</div>
             <div className="banDescrip">{props.content[count].description}</div>
-            <button
-            className="addToCart"
-            onClick={() => addToCart(props.content[count]._id)}>
-                      Add To Cart
-          </button>
           </div>
         </div>
       </a>
+      <button
+        className="addToCartBanner"
+        onClick={() => addToCart(props.content[count]._id)}
+      >
+        Add To Cart
+      </button>
       <div className="countWrapper">
         <div className="minCount count" onClick={minCount}>
-          -
+        {`<`}
         </div>
-        <div className="space" />
+        {/* <div className="space" /> */}
         <div className="addCount count" onClick={addCount}>
-          +
+       {`>`}
         </div>
       </div>
     </div>

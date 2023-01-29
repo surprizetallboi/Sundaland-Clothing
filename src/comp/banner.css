@@ -51,7 +51,7 @@
 
 .count {
   position: absolute;
-  top: 250px;
+  top: 190px;
   cursor: pointer;
   background-color: var(--header-bar-color);
   display: flex;
@@ -66,11 +66,11 @@
 }
 
 .addCount{
-    right: 150px;
+    right: 90px;
 }
 
 .minCount{
-    left: 150px;
+    left: 90px;
 } 
 
 .countWrapper {
@@ -80,4 +80,10 @@
 
 .space {
   width: auto;
+}
+
+.addToCartBanner{
+  position: absolute;
+  left: 200px;
+  bottom: 50px;
 }

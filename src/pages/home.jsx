@@ -7,7 +7,7 @@ export default function Home(props) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    fetch("http://99.140.253.135:3455/items/")
+    fetch("https://99.140.253.135:3455/items/")
       .then((response) => response.json())
       .then((response) => {
         setData(response);

@@ -8,7 +8,7 @@ export default function Womens(props) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://99.140.253.135:3455/items/categories/womens")
+    fetch("https://99.140.253.135:3455/items/categories/womens")
       .then((response) => response.json())
       .then((response) => {
         console.log(response);

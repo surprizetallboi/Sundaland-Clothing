@@ -10,7 +10,7 @@ export default function Cart() {
   useEffect(() => {
     async function fetchData() {
       const cartMap = cart.map(async (item) => {
-        const response = await fetch(`http://99.140.253.135:3455/items/${item._id}`);
+        const response = await fetch(`https://99.140.253.135:3455/items/${item._id}`);
         const json = await response.json();
         response.quant = item.quant;
         return json;

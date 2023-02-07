@@ -7,7 +7,7 @@ export default function Mens(props) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://99.140.253.135:3455/items/categories/mens")
+    fetch("https://99.140.253.135:3455/items/categories/mens")
       .then((response) => response.json())
       .then((response) => {
         console.log(response);

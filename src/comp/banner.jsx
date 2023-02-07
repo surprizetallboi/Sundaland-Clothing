@@ -47,8 +47,8 @@ export default function Banner(props) {
   }
   return (
     <div className="banner">
-      <a href={`/items/${props.content[count]._id}`}>
         <div className="square">
+      <a href={`/items/${props.content[count]._id}`}>
           <div className="banItems">
             <div className="banName">{props.content[count].name}</div>
   
@@ -56,7 +56,7 @@ export default function Banner(props) {
           <div className="disPrice">{Math.ceil((props.content[count].price*.8)*100)/100}</div>
             <div className="banDescrip">{props.content[count].description}</div>
           </div>
-        </div>
+        
       </a>
       <button
         className="addToCartBanner"
@@ -72,6 +72,7 @@ export default function Banner(props) {
         <div className="addCount count" onClick={addCount}>
        {`>`}
         </div>
+      </div>
       </div>
     </div>
   );

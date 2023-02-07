@@ -13,7 +13,7 @@ export default function indvItemDisplay() {
   const { item } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/items/${item}`)
+    fetch(`http://99.140.253.135:3455/items/${item}`)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -37,7 +37,7 @@ export default function indvItemDisplay() {
               <div className="color">{data.color}</div>
             </div>
             <div className="row">
-              <div className="price">{data.catagory}</div>
+              <div className="price">{data.category}</div>
               <div className="color">{data.type}</div>
             </div>
             <button className="addToCart" onClick={() => addToCart(data._id)}>

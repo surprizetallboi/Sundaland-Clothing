@@ -8,7 +8,7 @@ export default function Womens(props) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/items/categories/womens")
+    fetch("http://99.140.253.135:3455/items/categories/womens")
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -18,15 +18,14 @@ export default function Womens(props) {
       .catch(setError);
   }, []);
 
-  const womensSet = data.filter((i) => i.catagory === "womens");
   const womensOnSale = data.filter(
-    (i) => i.catagory === "womens" && i.isOnSale && i.isInStock
+    (i) => i.isOnSale && i.isInStock
   );
 
   return (
     <div className="womens">
       {data.length && <Banner content={womensOnSale} />}
-      {data.length && <Viewport content={womensSet} />}
+      {data.length && <Viewport content={data} />}
     </div>
   );
 }

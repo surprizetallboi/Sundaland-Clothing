@@ -20,7 +20,7 @@ export default function ItemDisplay(props) {
             <div className="color">{props.item.color}</div>
           </div>
           <div className="row">
-            <div className="price">{props.item.catagory}</div>
+            <div className="price">{props.item.category}</div>
             <div className="color">{props.item.type}</div>
           </div>
 

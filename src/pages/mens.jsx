@@ -7,7 +7,7 @@ export default function Mens(props) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/items/categories/mens")
+    fetch("http://99.140.253.135:3455/items/categories/mens")
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -17,16 +17,15 @@ export default function Mens(props) {
       .catch(setError);
   }, []);
 
-  const mensSet = data.filter((i) => i.catagory === "mens");
 
   const mensOnSale = data.filter(
-    (i) => i.catagory === "mens" && i.isOnSale && i.isInStock
+    (i) => i.isOnSale && i.isInStock
   );
 
   return (
     <div className="mesn">
       {data.length && <Banner content={mensOnSale} />}
-      {data.length && <Viewport content={mensSet} />}
+      {data.length && <Viewport content={data} />}
     </div>
   );
 }

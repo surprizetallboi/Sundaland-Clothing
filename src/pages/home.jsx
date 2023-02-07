@@ -16,6 +16,21 @@ export default function Home(props) {
       .catch(setError);
   }, []);
   console.log(data);
+
+//
+const [test, setTest] = useState([])
+  useEffect(() => {
+    fetch("https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple")
+      .then((result) => result.json())
+      .then(
+        (result) => {
+          console.log(result);
+          setTest(result)
+      })
+      .catch(setError);
+  }, []);
+//
+
   if (!data.length)
     return (
       <div className="spinner">

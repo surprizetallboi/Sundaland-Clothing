@@ -26,6 +26,7 @@ export default function Mens(props) {
     <div className="mesn">
       {data.length && <Banner content={mensOnSale} />}
       {data.length && <Viewport content={data} />}
+      <h1>test</h1>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
 // import { useCart } from "../CartContext";
 
-export default function Womens(props) {
+export default function Womens() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -26,7 +26,6 @@ export default function Womens(props) {
     <div className="womens">
       {data.length && <Banner content={womensOnSale} />}
       {data.length && <Viewport content={data} />}
-      <h1>test</h1>
     </div>
   );
 }

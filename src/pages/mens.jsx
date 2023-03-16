@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
 
-export default function Mens(props) {
+export default function Mens() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -26,7 +26,6 @@ export default function Mens(props) {
     <div className="mesn">
       {data.length && <Banner content={mensOnSale} />}
       {data.length && <Viewport content={data} />}
-      <h1>test</h1>
     </div>
   );
 }

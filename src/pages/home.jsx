@@ -3,7 +3,7 @@ import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
 import { Spinner } from "grommet";
 
-export default function Home(props) {
+export default function Home() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {

@@ -2,34 +2,24 @@ import React, { useState, useEffect } from "react";
 import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
 import { Spinner } from "grommet";
+import Data from "../sundalandData";
 
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(Data);
   const [error, setError] = useState(null);
-  useEffect(() => {
-    fetch("http://99.140.253.135:3455/items/")
-      .then((response) => response.json())
-      .then((response) => {
-        setData(response);
-        setError(null);
-      })
-      .catch(setError);
-  }, []);
-  console.log(data);
+  
 
-//
-const [test, setTest] = useState([])
-  useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple")
-      .then((result) => result.json())
-      .then(
-        (result) => {
-          console.log(result);
-          setTest(result)
-      })
-      .catch(setError);
-  }, []);
-//
+  //this doens't do anything because I couldn't get my backend to work on the internet
+  // useEffect(() => {
+  //   fetch("https://api.jerichopetcare.com/items/")
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       setData(response);
+  //       setError(null);
+  //     })
+  //     .catch(setError);
+  // }, []);
+  // console.log(data);
 
   if (!data.length)
     return (

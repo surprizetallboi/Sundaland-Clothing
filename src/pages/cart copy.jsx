@@ -9,37 +9,23 @@ export default function Cart() {
   const { cart, setCart } = useCart();
   const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const cartMap = cart.map(async (item) => {
-  //       const response = await fetch(`https://api.jerichopetcare.com/items/${item._id}`);
-  //       const json = await response.json();
-  //       response.quant = item.quant;
-  //       return json;
-  //     });
-  //     const thingy = await Promise.all(cartMap);
-  //     thingy.forEach((i) => {
-  //       const cartI = cart.findIndex((x) => x._id === i._id);
-  //       return (i.quant = cart[cartI].quant);
-  //     });
-  //     setData(thingy);
-  //   }
-  //   fetchData();
-  // }, [cart]);
-
-
-
   useEffect(() => {
-    const matchedItems = cart.map(({ id, quant }) => {
-    const item = data.find((item) => item.id === id);
-    return { ...item, quant }
-    })
-    setData(matchedItems);
+    async function fetchData() {
+      const cartMap = cart.map(async (item) => {
+        const response = await fetch(`https://api.jerichopetcare.com/items/${item._id}`);
+        const json = await response.json();
+        response.quant = item.quant;
+        return json;
+      });
+      const thingy = await Promise.all(cartMap);
+      thingy.forEach((i) => {
+        const cartI = cart.findIndex((x) => x._id === i._id);
+        return (i.quant = cart[cartI].quant);
+      });
+      setData(thingy);
+    }
+    fetchData();
   }, [cart]);
-
-
-
-
 
   const initialValue = 0;
   const preSubTotal = data.reduce(
@@ -70,7 +56,7 @@ export default function Cart() {
   // keep price in state, run this in my map, and set state to price+new ammount
 
   const dataMap = data.map((item) => {
-    return <CartItem item={item} key={item.id} />;
+    return <CartItem item={item} key={item._id} />;
   });
 
   if (!data.length) return <div>Loading</div>;

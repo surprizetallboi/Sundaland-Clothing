@@ -13,7 +13,7 @@ export default function indvItemDisplay() {
   const { item } = useParams();
 
   useEffect(() => {
-    fetch(`https://99.140.253.135:3455/items/${item}`)
+    fetch(`https://api.jerichopetcare.com/items/${item}`)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);

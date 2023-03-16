@@ -7,16 +7,17 @@ export default function Womens() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch("https://99.140.253.135:3455/items/categories/womens")
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        setData(response);
-        setError(null);
-      })
-      .catch(setError);
-  }, []);
+  //this doens't do anything because I couldn't get my backend to work on the internet
+  // useEffect(() => {
+  //   fetch("https://api.jerichopetcare.com/items/categories/womens")
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //       setData(response);
+  //       setError(null);
+  //     })
+  //     .catch(setError);
+  // }, []);
 
   const womensOnSale = data.filter(
     (i) => i.isOnSale && i.isInStock

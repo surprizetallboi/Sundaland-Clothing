@@ -4,10 +4,10 @@ import Banner from "../comp/banner";
 import Data from "../sundalandData";
 
 export default function Mens() {
-  const [data, setData] = useState();
-  const [error, setError] = useState(null);
-
-  //this doens't do anything because I couldn't get my backend to work on the internet
+  
+  // this doens't do anything because I couldn't get my backend to work on the internet
+     const [data, setData] = useState(Data);
+  // const [error, setError] = useState(null);
   // useEffect(() => {
   //   fetch("https://api.jerichopetcare.com/items/categories/mens")
   //     .then((response) => response.json())
@@ -19,14 +19,14 @@ export default function Mens() {
   //     .catch(setError);
   // }, []);
 
-  const isMens = Data.filter((i) => i.category === 'mens');
+  const isMens = data.filter((i) => i.category === 'mens');
 
   const mensOnSale = isMens.filter((i) => i.isOnSale && i.isInStock);
 
   return (
-    <div className="mesn">
+    <div className="mens">
       <Banner content={mensOnSale} />
-      <Viewport key={isMens[0]._id} content={data} />
+      <Viewport key={isMens[0]._id} content={isMens} />
     </div>
   );
 }

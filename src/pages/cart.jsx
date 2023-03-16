@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./cart.css";
 import { useCart } from "../CartContext";
 import CartItem from "../comp/cartItem";
-// import Data from "../sundalandData";
+import Data from "../sundalandData";
 
 
 export default function Cart() {
@@ -30,8 +30,8 @@ export default function Cart() {
 
 
   useEffect(() => {
-    const matchedItems = cart.map(({ id, quant }) => {
-    const item = data.find((item) => item.id === id);
+    const matchedItems = cart.map(({ _id, quant }) => {
+    const item = Data.find((item) => item._id === _id);
     return { ...item, quant }
     })
     setData(matchedItems);
@@ -39,7 +39,7 @@ export default function Cart() {
 
 
 
-
+console.log(cart);
 
   const initialValue = 0;
   const preSubTotal = data.reduce(
@@ -70,7 +70,7 @@ export default function Cart() {
   // keep price in state, run this in my map, and set state to price+new ammount
 
   const dataMap = data.map((item) => {
-    return <CartItem item={item} key={item.id} />;
+    return <CartItem item={item} key={item._id} />;
   });
 
   if (!data.length) return <div>Loading</div>;

@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import ItemDisplay from "../comp/itemDisplay";
 import "./indvItemDisplay.css";
 import { useCart } from "../CartContext";
-import ItemsLikeThis from "../comp/itemsLikeThis"
+import Data from "../sundalandData";
+
+// import ItemsLikeThis from "../comp/itemsLikeThis"
 
 export default function indvItemDisplay() {
   const { addToCart } = useCart();
@@ -13,15 +15,25 @@ export default function indvItemDisplay() {
   const { item } = useParams();
 
   useEffect(() => {
-    fetch(`https://api.jerichopetcare.com/items/${item}`)
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        setData(response);
-        setError(null);
-      })
-      .catch(setError);
+    const correctItem = Data.find((i) => i._id === Number(item))
+    setData(correctItem)
   }, []);
+
+
+
+
+
+  // this doens't do anything because I couldn't get my backend to work on the internet
+  // useEffect(() => {
+  //   fetch(`https://api.jerichopetcare.com/items/${item}`)
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       console.log(response);
+  //       setData(response);
+  //       setError(null);
+  //     })
+  //     .catch(setError);
+  // }, []);
 
   return (
     <div className="indvItemDisplay">
@@ -31,9 +43,13 @@ export default function indvItemDisplay() {
             <div className="indvItemName">{data.name}</div>
             <div className="descrip">{data.description}</div>
             <div className="row">
-            {!data.isOnSale && <div className="price">{data.price}</div>}
-          {data.isOnSale && <div className="oldPrice">{data.price}</div>}
-          {data.isOnSale && <div className="disPrice">{Math.ceil((data.price*.8)*100)/100}</div>}
+              {!data.isOnSale && <div className="price">{data.price}</div>}
+              {data.isOnSale && <div className="oldPrice">{data.price}</div>}
+              {data.isOnSale && (
+                <div className="disPrice">
+                  {Math.ceil(data.price * 0.8 * 100) / 100}
+                </div>
+              )}
               <div className="color">{data.color}</div>
             </div>
             <div className="row">

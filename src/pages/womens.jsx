@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Viewport from "../comp/viewport";
 import Banner from "../comp/banner";
-// import { useCart } from "../CartContext";
+import Data from "../sundalandData";
+
 
 export default function Womens() {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-
-  //this doens't do anything because I couldn't get my backend to work on the internet
+  
+  // this doens't do anything because I couldn't get my backend to work on the internet
+     const [data, setData] = useState(Data);
+  // const [error, setError] = useState(null);
   // useEffect(() => {
   //   fetch("https://api.jerichopetcare.com/items/categories/womens")
   //     .then((response) => response.json())
@@ -19,14 +20,14 @@ export default function Womens() {
   //     .catch(setError);
   // }, []);
 
-  const womensOnSale = data.filter(
-    (i) => i.isOnSale && i.isInStock
-  );
+  const isWomens = data.filter((i) => i.category === 'womens');
+
+  const womensOnSale = isWomens.filter((i) => i.isOnSale && i.isInStock);
 
   return (
     <div className="womens">
-      {data.length && <Banner content={womensOnSale} />}
-      {data.length && <Viewport content={data} />}
+      <Banner content={womensOnSale} />
+      <Viewport key={isWomens[0]._id} content={isWomens} />
     </div>
   );
 }

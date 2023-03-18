@@ -7,27 +7,45 @@
   height: 400px;
   align-items: center;
   justify-content: center;
-  /* background-color: black; */
   width: 100vw;
   font-size: var(--main-font-size);
 }
 
-.square{
+@media (max-width: 768px) {
+  .banner {
+    height: 300px;
+  }
+}
+
+.square {
   width: 90vw;
   height: 35em;
   margin-top: 1em;
-  background-color: #889a8e;
+  background-color: #1da049;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   border-radius: 2em;
   position: relative;
-  
+}
+
+@media (max-width: 768px) {
+  .square {
+    height: 25em;
+    width: 80vw;
+    margin-top: 0.5em;
+  }
 }
 
 .banItems {
   margin-left: 100px;
   margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .banItems {
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
 }
 
 .banName {
@@ -37,10 +55,22 @@
   padding-bottom: 15px;
 }
 
+@media (max-width: 768px) {
+  .banName {
+    font-size: 28px;
+  }
+}
+
 .banPrice {
   padding-bottom: 15px;
   font-size: 20px;
   font-weight: 100;
+}
+
+@media (max-width: 768px) {
+  .banPrice {
+    font-size: 16px;
+  }
 }
 
 .banDescrip {
@@ -49,11 +79,17 @@
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .banDescrip {
+    font-size: 16px;
+  }
+}
+
 .count {
   position: absolute;
   top: 190px;
   cursor: pointer;
-  background-color: var(--header-bar-color);
+  background-color: var(--orange-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,25 +101,55 @@
   color: var(--header-font-color);
 }
 
-.addCount{
-    right: 30px;
+@media (max-width: 768px) {
+  .count {
+    top: 150px;
+    font-size: 28px;
+    height: 30px;
+    width: 30px;
+  }
 }
 
-.minCount{
-    left: 30px;
-} 
+.addCount {
+  right: 30px;
+}
+
+.minCount {
+  left: 30px;
+}
 
 .countWrapper {
-  /* position: absolute; */
   display: flex;
+}
+
+@media (max-width: 768px) {
+  .countWrapper {
+    margin-top: 20px;
+  }
 }
 
 .space {
   width: auto;
 }
 
-.addToCartBanner{
+@media (max-width: 768px) {
+  .space {
+    display: none;
+  }
+}
+
+.addToCartBanner {
   position: absolute;
   left: 100px;
   bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .addToCartBanner {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
 }

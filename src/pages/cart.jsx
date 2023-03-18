@@ -9,6 +9,8 @@ export default function Cart() {
   const { cart, setCart } = useCart();
   const [data, setData] = useState([]);
 
+
+  // this doens't do anything because I couldn't get my backend to work on the internet
   // useEffect(() => {
   //   async function fetchData() {
   //     const cartMap = cart.map(async (item) => {
@@ -28,7 +30,6 @@ export default function Cart() {
   // }, [cart]);
 
 
-
   useEffect(() => {
     const matchedItems = cart.map(({ _id, quant }) => {
     const item = Data.find((item) => item._id === _id);
@@ -36,10 +37,6 @@ export default function Cart() {
     })
     setData(matchedItems);
   }, [cart]);
-
-
-
-console.log(cart);
 
   const initialValue = 0;
   const preSubTotal = data.reduce(

@@ -12,10 +12,10 @@
   padding-top: 1em;
 }
 
-.square {
+.indvSquare {
   width: 90vw;
   height: 35em;
-  background-color: #889a8e;
+  background-color: var(--black-text-color);
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */

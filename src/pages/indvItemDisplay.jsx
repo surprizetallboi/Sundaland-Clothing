@@ -37,7 +37,7 @@ export default function indvItemDisplay() {
 
   return (
     <div className="indvItemDisplay">
-      <div className="square">
+      <div className="indvSquare">
         <div className="padding">
           <div className="itemsCollum">
             <div className="indvItemName">{data.name}</div>

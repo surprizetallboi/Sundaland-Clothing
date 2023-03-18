@@ -11,28 +11,13 @@
   font-size: var(--main-font-size);
 }
 
-@media (max-width: 768px) {
-  .banner {
-    height: 300px;
-  }
-}
-
 .square {
   width: 90vw;
   height: 35em;
   margin-top: 1em;
-  background-color: #1da049;
-  display: flex;
+  background-color: var(--black-text-color);
   border-radius: 2em;
   position: relative;
-}
-
-@media (max-width: 768px) {
-  .square {
-    height: 25em;
-    width: 80vw;
-    margin-top: 0.5em;
-  }
 }
 
 .banItems {
@@ -40,56 +25,34 @@
   margin-top: 50px;
 }
 
-@media (max-width: 768px) {
-  .banItems {
-    margin-left: 0;
-    margin-top: 20px;
-    text-align: center;
-  }
-}
-
 .banName {
   text-transform: uppercase;
   font-weight: 900;
   font-size: 40px;
   padding-bottom: 15px;
+  color: var(--white-color);
 }
 
-@media (max-width: 768px) {
-  .banName {
-    font-size: 28px;
-  }
-}
 
-.banPrice {
+.disPrice {
   padding-bottom: 15px;
   font-size: 20px;
   font-weight: 100;
-}
-
-@media (max-width: 768px) {
-  .banPrice {
-    font-size: 16px;
-  }
+  color: var(--white-color);
 }
 
 .banDescrip {
   max-width: 550px;
   font-size: 20px;
   font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .banDescrip {
-    font-size: 16px;
-  }
+  color: var(--white-color);
 }
 
 .count {
   position: absolute;
   top: 190px;
   cursor: pointer;
-  background-color: var(--orange-color);
+  background-color: var(--black-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,16 +61,7 @@
   font-size: 40px;
   font-weight: 900;
   border-radius: 100px;
-  color: var(--header-font-color);
-}
-
-@media (max-width: 768px) {
-  .count {
-    top: 150px;
-    font-size: 28px;
-    height: 30px;
-    width: 30px;
-  }
+  color: var(--white-color);
 }
 
 .addCount {
@@ -122,20 +76,8 @@
   display: flex;
 }
 
-@media (max-width: 768px) {
-  .countWrapper {
-    margin-top: 20px;
-  }
-}
-
 .space {
   width: auto;
-}
-
-@media (max-width: 768px) {
-  .space {
-    display: none;
-  }
 }
 
 .addToCartBanner {
@@ -145,11 +87,52 @@
 }
 
 @media (max-width: 768px) {
-  .addToCartBanner {
+  .banner {
+    height: 300px;
+  }
+  .square {
+    height: 25em;
+    width: 80vw;
+    margin-top: 0.5em;
+  }
+  .banItems {
+    margin-left: 0;
+    padding-left: 30px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  .banName {
+    font-size: 28px;
+  }
+  .banPrice {
+    font-size: 16px;
+  }
+  .banDescrip {
+    font-size: 16px;
+  }
+  .count {
+    top: 150px;
+    font-size: 28px;
+    height: 30px;
+    width: 30px;
+  }
+  .countWrapper {
+    margin-top: 20px;
+  }
+  .space {
+    display: none;
+  }
+    .addToCartBanner {
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
     margin-top: 20px;
+    z-index: 1;
+    border-radius: 2em;
+  }
+  .addToCartBanner:hover {
+    color: var(--orange-color);
+    border: none;
   }
 }

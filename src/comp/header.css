@@ -41,8 +41,8 @@
   right: 20px;
 }
 
-.cart {
-  color: var(--header-font-color);
+.headerCart {
+  color: var(--orange-color);
 }
 
 .catHeader {
